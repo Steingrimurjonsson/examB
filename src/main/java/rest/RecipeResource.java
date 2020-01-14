@@ -39,7 +39,8 @@ public class RecipeResource {
     private static final RecipeFacade facade = RecipeFacade.getRecipeFacade(emf);
     @Context
     private UriInfo context;
-
+    @Context
+    SecurityContext securityContext;
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getInfoForAll() {
