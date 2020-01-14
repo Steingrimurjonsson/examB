@@ -223,7 +223,7 @@ public class RecipeFacade {
             bunIn.setRecipe(burgerFries);
             burgerPattieSingle.setRecipe(burgerFries);
 
-            em.persist(burgerPattie);
+            em.persist(burgerFries);
 
             Recipe pizzaPepperoni = new Recipe("pizza pepperoni", 20, "Put tomato and pepperoni on pizza bottom and put in oven");
             pizzaBottom.setRecipe(pizzaPepperoni);

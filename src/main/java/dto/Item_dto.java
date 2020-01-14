@@ -15,12 +15,12 @@ public class Item_dto {
 
     private Long itemid;
     private String name;
-    private int PricePrKg;
+    private String PricePrKg;
 
     public Item_dto(Item item) {
         this.itemid = item.getItemid();
         this.name = item.getName();
-        this.PricePrKg = item.getPricePrKg();
+        this.PricePrKg =  String.valueOf(item.getPricePrKg());
     }
 
     public Long getItemid() {
@@ -39,11 +39,11 @@ public class Item_dto {
         this.name = name;
     }
 
-    public int getPricePrKg() {
+    public String getPricePrKg() {
         return PricePrKg;
     }
 
-    public void setPricePrKg(int PricePrKg) {
+    public void setPricePrKg(String PricePrKg) {
         this.PricePrKg = PricePrKg;
     }
 

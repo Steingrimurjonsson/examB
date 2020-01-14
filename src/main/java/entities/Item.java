@@ -20,7 +20,7 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Item.all", query = "SELECT i FROM Storage i")})
+    @NamedQuery(name = "Item.all", query = "SELECT i FROM Item i")})
 public class Item implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,8 +40,8 @@ public class Item implements Serializable {
 
     public Item(Item_dto item_dto) {
         this.itemid = item_dto.getItemid();
+        this.pricePrKg = Integer.parseInt(item_dto.getPricePrKg());
         this.name = item_dto.getName();
-        this.pricePrKg = item_dto.getPricePrKg();
     }
 
     public Long getItemid() {
