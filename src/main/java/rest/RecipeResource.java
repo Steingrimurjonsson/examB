@@ -42,19 +42,21 @@ public class RecipeResource {
     private UriInfo context;
     @Context
     SecurityContext securityContext;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getInfoForAll() {
         return "{\"msg\":\"Hello anonymous\"}";
     }
- 
+
     @GET
-    @Path("pop")
     @Produces({MediaType.APPLICATION_JSON})
+    @Path("pop")
     public String popDB() {
         facade.popDB();
         return "{\"Message\":\"SUCCESS\"}";
     }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("getstorage")
