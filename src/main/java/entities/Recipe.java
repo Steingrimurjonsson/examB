@@ -5,6 +5,7 @@
  */
 package entities;
 
+import dto.Ingredient_dto;
 import dto.Recipe_dto;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -59,9 +60,10 @@ public class Recipe implements Serializable {
         this.resName = recipe.getResName();
         this.preptime = recipe.getPreptime();
         this.directions = recipe.getDirection();
-        recipe.getIngredientList_dto().forEach((ingredient) -> {
+          for (Ingredient_dto ingredient : recipe.getIngredientList_dto()) {
             this.ingredientlist.add(new Ingredient(ingredient));
-        });// throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        
     }
 
     public List<Ingredient> getIngredientlist() {

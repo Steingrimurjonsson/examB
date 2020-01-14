@@ -43,11 +43,12 @@ public class WeekMenuPlan implements Serializable {
 
     public WeekMenuPlan(Menu_dto menu_dto) {
         this.recipelist = new ArrayList();
-
-        menu_dto.getRecipelist().forEach((recipe) -> {
-            this.recipelist.add(new Recipe(recipe));
-        });
-
+        
+        for (Recipe_dto recipe:  menu_dto.getRecipelist()) {
+            recipelist.add(new Recipe(recipe));
+        }
+        
+        
         this.w = menu_dto.getW();
         this.menuid = menu_dto.getMenuid();
         this.y = menu_dto.getY();

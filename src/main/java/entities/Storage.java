@@ -35,6 +35,9 @@ public class Storage implements Serializable {
     @OneToOne
     private Item item;
 
+    public Storage() {
+    }
+
     public Storage(int amount) {
         this.amount = amount;
     }

@@ -30,6 +30,9 @@ public class Item implements Serializable {
     private String name;
     private int pricePrKg;
 
+    public Item() {
+    }
+
     public Item(String name, int pricePrKg) {
         this.name = name;
         this.pricePrKg = pricePrKg;

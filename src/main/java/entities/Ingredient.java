@@ -44,6 +44,14 @@ public class Ingredient implements Serializable {
         this.item = item;
     }
 
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
     public Ingredient(Ingredient_dto ingredient) {
         this.item_id = ingredient.getItem_id();
         this.item = new Item(ingredient.getItem_dto());
@@ -52,6 +60,10 @@ public class Ingredient implements Serializable {
 
     public Recipe getRecipe() {
         return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
     }
 
     public Long getItem_id() {
@@ -73,10 +85,6 @@ public class Ingredient implements Serializable {
     @Override
     public String toString() {
         return "Ingredient{" + "item_id=" + item_id + ", amount=" + amount + '}';
-    }
-
-    public void setRecipe(Recipe burgerFries) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

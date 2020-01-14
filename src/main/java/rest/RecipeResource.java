@@ -22,6 +22,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
@@ -70,12 +71,12 @@ public class RecipeResource {
         return facade.getAllMenues();
     }
 
-    @GET
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("addweek/")
     @RolesAllowed({"admin", "user"})
-    public Menu_dto addTheWeek(Menu_dto week) {
-        return facade.addTheWeek(week);
+    public Menu_dto addTheWeek(Menu_dto w) {
+        return facade.addTheWeek(w);
     }
 
     @GET
@@ -86,11 +87,12 @@ public class RecipeResource {
         return facade.getRecipes();
     }
 
+    @POST
     @Path("additem/")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     @RolesAllowed("admin")
-    public Item_dto adminAddHobby(Item_dto item) {
+    public Item_dto addItem(Item_dto item) {
         return facade.addToItems(item);
     }
 
