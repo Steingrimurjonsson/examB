@@ -35,7 +35,7 @@ import utils.EMF_Creator;
 @Path("recipes")
 public class RecipeResource {
 
-    private static EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.DEV, EMF_Creator.Strategy.CREATE);
+    private static EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.DEV, EMF_Creator.Strategy.DROP_AND_CREATE);
     private static final RecipeFacade facade = RecipeFacade.getRecipeFacade(emf);
     @Context
     private UriInfo context;
