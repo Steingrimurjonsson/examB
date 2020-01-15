@@ -36,7 +36,7 @@ import utils.EMF_Creator;
 @Path("recipes")
 public class RecipeResource {
 
-    private static EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.DEV, EMF_Creator.Strategy.DROP_AND_CREATE);
+    private static EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.DEV, EMF_Creator.Strategy.CREATE);
     private static final RecipeFacade facade = RecipeFacade.getRecipeFacade(emf);
     @Context
     private UriInfo context;
@@ -51,7 +51,7 @@ public class RecipeResource {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    @Path("pop")
+    @Path("/pop")
     public String popDB() {
         facade.popDB();
         return "{\"Message\":\"SUCCESS\"}";
@@ -59,7 +59,7 @@ public class RecipeResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("getstorage")
+    @Path("/getstorage")
    // @RolesAllowed("admin")
     public List<Storage_dto> getStorage() {
         return facade.getStorage();
@@ -82,9 +82,9 @@ public class RecipeResource {
     }
 
     @GET
-    @Path("getrecipe")
+    @Path("/getrecipe")
     @Produces({MediaType.APPLICATION_JSON})
-    @RolesAllowed({"admin", "user"})
+    //@RolesAllowed({"admin", "user"})
     public List<Recipe_dto> getAllRecipes() {
         return facade.getRecipes();
     }
