@@ -60,7 +60,7 @@ public class RecipeResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("getstorage")
-    @RolesAllowed("admin")
+   // @RolesAllowed("admin")
     public List<Storage_dto> getStorage() {
         return facade.getStorage();
     }
