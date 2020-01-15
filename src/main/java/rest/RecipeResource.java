@@ -6,7 +6,6 @@
 package rest;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import dto.Item_dto;
 import dto.Menu_dto;
 import dto.Recipe_dto;
@@ -39,7 +38,6 @@ public class RecipeResource {
 
     private static EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.DEV, EMF_Creator.Strategy.DROP_AND_CREATE);
     private static final RecipeFacade facade = RecipeFacade.getRecipeFacade(emf);
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     @Context
     private UriInfo context;
     @Context
@@ -62,7 +60,7 @@ public class RecipeResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("getstorage")
-    //@RolesAllowed("admin")
+    @RolesAllowed("admin")
     public List<Storage_dto> getStorage() {
         return facade.getStorage();
     }
@@ -70,7 +68,7 @@ public class RecipeResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("allmenues")
-    //@RolesAllowed({"admin", "user"})
+    @RolesAllowed({"admin", "user"})
     public List<Menu_dto> allMenues() {
         return facade.getAllMenues();
     }
@@ -78,7 +76,7 @@ public class RecipeResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("addweek/")
-    // @RolesAllowed({"admin", "user"})
+    @RolesAllowed({"admin", "user"})
     public Menu_dto addTheWeek(Menu_dto w) {
         return facade.addTheWeek(w);
     }
@@ -86,7 +84,7 @@ public class RecipeResource {
     @GET
     @Path("getrecipe")
     @Produces({MediaType.APPLICATION_JSON})
-    //@RolesAllowed({"admin", "user"})
+    @RolesAllowed({"admin", "user"})
     public List<Recipe_dto> getAllRecipes() {
         return facade.getRecipes();
     }
@@ -95,7 +93,7 @@ public class RecipeResource {
     @Path("additem/")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    //@RolesAllowed("admin")
+    @RolesAllowed("admin")
     public Item_dto addItem(Item_dto item) {
         return facade.addToItems(item);
     }
@@ -103,7 +101,7 @@ public class RecipeResource {
     @GET
     @Path("allitems")
     @Produces({MediaType.APPLICATION_JSON})
-    // @RolesAllowed("admin")
+    @RolesAllowed("admin")
     public List<Item_dto> getItems() {
         return facade.getItems();
     }
@@ -111,7 +109,7 @@ public class RecipeResource {
     @GET
     @Path("addstorage/{itemid}/{amount}")
     @Produces({MediaType.APPLICATION_JSON})
-    //  @RolesAllowed("admin")
+    @RolesAllowed("admin")
     public Storage_dto addStorage(@PathParam("itemid") Long itemid, @PathParam("amount") int amount) {
         return facade.updateStorage(itemid, amount);
     }
