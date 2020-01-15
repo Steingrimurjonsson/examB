@@ -67,7 +67,7 @@ public class RecipeResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("allmenues")
+    @Path("/allmenues")
     @RolesAllowed({"admin", "user"})
     public List<Menu_dto> allMenues() {
         return facade.getAllMenues();
@@ -75,7 +75,7 @@ public class RecipeResource {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("addweek/")
+    @Path("/addweek/")
     @RolesAllowed({"admin", "user"})
     public Menu_dto addTheWeek(Menu_dto w) {
         return facade.addTheWeek(w);
@@ -90,7 +90,7 @@ public class RecipeResource {
     }
 
     @POST
-    @Path("additem/")
+    @Path("/additem/")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     @RolesAllowed("admin")
@@ -99,7 +99,7 @@ public class RecipeResource {
     }
 
     @GET
-    @Path("allitems")
+    @Path("/allitems")
     @Produces({MediaType.APPLICATION_JSON})
     @RolesAllowed("admin")
     public List<Item_dto> getItems() {
@@ -107,7 +107,7 @@ public class RecipeResource {
     }
 
     @GET
-    @Path("addstorage/{itemid}/{amount}")
+    @Path("/addstorage/{itemid}/{amount}")
     @Produces({MediaType.APPLICATION_JSON})
     @RolesAllowed("admin")
     public Storage_dto addStorage(@PathParam("itemid") Long itemid, @PathParam("amount") int amount) {
